@@ -27,6 +27,7 @@
 
 Contents:
 =========
+0. WWare preamble
 1. Description
 2. Yocto BSP Layer - RaspberryPi
     2.A. Compressed deployed files
@@ -48,6 +49,20 @@ Contents:
     5.C. Trello Board
 6. Maintainers
 
+0. Wware preamble
+=================
+
+Here are the commands for setting all this up.
+
+$ git clone git://git.yoctoproject.org/poky
+$ cd poky
+$ git clone git://github.com/wware/meta-raspberrypi    # my code is in here
+$ git clone git://git.openembedded.org/meta-openembedded
+$ . oe-init-build-env raspi
+$ cd raspi
+$ vim conf/local.conf            # MACHINE ?= "raspberrypi"
+$ vim conf/bblayers.conf         # Add ".../poky/meta-raspberrypi" to BBLAYERS
+$ bitbake wware-image
 
 1. Description
 ==============
