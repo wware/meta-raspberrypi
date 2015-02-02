@@ -60,9 +60,16 @@ $ git clone git://github.com/wware/meta-raspberrypi    # my code is in here
 $ git clone git://git.openembedded.org/meta-openembedded
 $ . oe-init-build-env raspi
 $ cd raspi
-$ vim conf/local.conf            # MACHINE ?= "raspberrypi"
+$ vim conf/local.conf            # Set MACHINE ?= "raspberrypi"
 $ vim conf/bblayers.conf         # Add ".../poky/meta-raspberrypi" to BBLAYERS
 $ bitbake wware-image
+
+After confirming that your SD card is /dev/sdb (and DON'T screw this up), type
+
+$ sudo dd if=tmp/deploy/images/raspberrypi/wware-image-raspberrypi.rpi-sdimg of=/dev/sdb bs=1M
+
+Put the SD card into the RPi, plug in a monitor and keyboard and ethernet cable,
+apply power, and voila, running code.
 
 1. Description
 ==============
